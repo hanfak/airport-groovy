@@ -1,0 +1,16 @@
+apply plugin: "groovy"
+
+version = "1.0"
+description = "Airport Project"
+
+sourceCompatibility = 1.5
+
+repositories {
+  mavenCentral()
+  maven { url "http://oss.sonatype.org/content/repositories/snapshots/" }
+}
+
+dependencies {
+  compile "org.codehaus.groovy:groovy-all:2.4.1"
+  testCompile "org.spockframework:spock-core:1.0-groovy-2.4"
+}
