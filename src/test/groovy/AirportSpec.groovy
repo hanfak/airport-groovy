@@ -2,11 +2,13 @@ import spock.lang.*
 
 class AirportSpec extends Specification {
     def airport
-    def plane
+    Plane plane
 
     def setup() {
+      plane = Mock()
+
       airport = new Airport()
-      plane = Mock(Plane)
+
     }
 
     def 'return airport is empty when created'() {
@@ -25,5 +27,13 @@ class AirportSpec extends Specification {
       then:
       result.size() == 1
       result[0] == plane
+    }
+
+    def 'plane lands'() {
+      when:
+      airport.instruct_to_land(plane)
+
+      then:
+      1 * plane.land()
     }
 }

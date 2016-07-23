@@ -6,6 +6,7 @@ class Airport {
   }
 
   def instruct_to_land(plane) {
+    plane.land()
     this.planes.push(plane)
   }
 }
