@@ -5,7 +5,7 @@ class AirportSpec extends Specification {
     Plane plane
 
     def setup() {
-      plane = Mock()
+      plane = GroovyMock()
 
       airport = new Airport()
 

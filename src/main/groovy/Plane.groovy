@@ -1,5 +1,0 @@
-class Plane {
-  def land(){
-
-  }
-}
