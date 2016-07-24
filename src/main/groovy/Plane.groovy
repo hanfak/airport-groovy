@@ -13,4 +13,8 @@ class Plane {
     this.status = true
   }
 
+  def takeOff() {
+    this.status = false
+  }
+
 }

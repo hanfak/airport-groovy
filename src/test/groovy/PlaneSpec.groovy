@@ -19,4 +19,13 @@ class PlaneSpec extends Specification {
     then:
     plane.isAtAirport() == true
   }
+
+  def 'plane is not at airport after take off'() {
+    when:
+    plane.land()
+    plane.takeOff()
+
+    then:
+    plane.isAtAirport() == false
+  }
 }
