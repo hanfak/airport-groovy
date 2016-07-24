@@ -61,9 +61,19 @@ class AirportSpec extends Specification {
 
     def 'plane can take off after being instructed'() {
       when:
+      airport.instructToLand(plane)
       airport.instructTakeOff(plane)
 
       then:
       1 * plane.takeOff()
+    }
+
+    def 'plane cannot take off if not at airport'() {
+      when:
+      airport.instructTakeOff(plane)
+
+      then:
+      def exception = thrown(PlaneNotAtAirportException)
+      exception.message == 'Plane cannot take off: Plane not at airport'
     }
 }
