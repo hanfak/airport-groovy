@@ -11,6 +11,7 @@ class Airport {
   }
 
   def instructTakeOff(plane) {
+    plane.takeOff()
     this.planes.remove(plane)
   }
 }

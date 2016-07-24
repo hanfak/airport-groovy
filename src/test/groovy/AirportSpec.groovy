@@ -29,7 +29,7 @@ class AirportSpec extends Specification {
       result[0] == plane
     }
 
-    def 'plane lands'() {
+    def 'plane can land after being instructed'() {
       when:
       airport.instructToLand(plane)
 
@@ -46,5 +46,13 @@ class AirportSpec extends Specification {
       then:
       result.size == 0
       airport.planes.contains(plane) == false
+    }
+
+    def 'plane can take off after being instructed'() {
+      when:
+      airport.instructTakeOff(plane)
+
+      then:
+      1 * plane.takeOff()
     }
 }
