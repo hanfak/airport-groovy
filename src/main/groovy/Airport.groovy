@@ -6,9 +6,7 @@ class Airport {
   }
 
   def instructToLand(plane) {
-    if( this.planes.contains(plane) ) {
-      throw new PlaneAtAirportException('Plane cannot land: Plane already at airport')
-    }
+    isPlaneAtAirport(plane)
     plane.land()
     this.planes.push(plane)
   }
@@ -16,6 +14,12 @@ class Airport {
   def instructTakeOff(plane) {
     plane.takeOff()
     this.planes.remove(plane)
+  }
+
+  private def isPlaneAtAirport(plane) {
+    if( this.planes.contains(plane) ) {
+      throw new PlaneAtAirportException('Plane cannot land: Plane already at airport')
+    }
   }
 }
 
