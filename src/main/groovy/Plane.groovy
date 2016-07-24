@@ -5,7 +5,7 @@ class Plane {
     this.status = false
   }
 
-  def at_airport() {
+  def isAtAirport() {
     this.status
   }
 

@@ -9,7 +9,7 @@ class PlaneSpec extends Specification {
 
   def 'plane is initially not at the airport'() {
     expect:
-    plane.at_airport() == false
+    plane.isAtAirport() == false
   }
 
   def 'plane is at airport after landing'() {
@@ -17,6 +17,6 @@ class PlaneSpec extends Specification {
     plane.land()
 
     then:
-    plane.at_airport() == true
+    plane.isAtAirport() == true
   }
 }
