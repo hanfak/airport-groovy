@@ -5,8 +5,12 @@ class Airport {
     this.planes = []
   }
 
-  def instruct_to_land(plane) {
+  def instructToLand(plane) {
     plane.land()
     this.planes.push(plane)
+  }
+
+  def instructTakeOff(plane) {
+    this.planes.remove(plane)
   }
 }

@@ -21,7 +21,7 @@ class AirportSpec extends Specification {
 
     def 'plane stored in airport after landing'() {
       when:
-      airport.instruct_to_land(plane)
+      airport.instructToLand(plane)
       def result = airport.planes
 
       then:
@@ -31,9 +31,20 @@ class AirportSpec extends Specification {
 
     def 'plane lands'() {
       when:
-      airport.instruct_to_land(plane)
+      airport.instructToLand(plane)
 
       then:
       1 * plane.land()
+    }
+
+    def 'instructs plane to take off'() {
+      when:
+      airport.instructToLand(plane)
+      airport.instructTakeOff(plane)
+      def result = airport.planes
+
+      then:
+      result.size == 0
+      airport.planes.contains(plane) == false
     }
 }
