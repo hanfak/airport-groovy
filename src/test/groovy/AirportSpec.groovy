@@ -27,6 +27,7 @@ class AirportSpec extends Specification {
       then:
       result.size() == 1
       result[0] == plane
+      notThrown PlaneAtAirportException
     }
 
     def 'plane can land after being instructed'() {
@@ -35,6 +36,16 @@ class AirportSpec extends Specification {
 
       then:
       1 * plane.land()
+    }
+
+    def 'plane cannot land if already at airport'() {
+      when:
+      airport.instructToLand(plane)
+      airport.instructToLand(plane)
+
+      then:
+      def exception = thrown(PlaneAtAirportException)
+      exception.message == 'Plane cannot land: Plane already at airport'
     }
 
     def 'instructs plane to take off'() {
